@@ -1,11 +1,36 @@
 import React, { Component } from "react";
 import Buttons from './buttons';
 class MainGame extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+      button1toggle : 'buttonInner1',
+      button2toggle : 'buttonInner2',
+      button3toggle : 'buttonInner3',
+      button4toggle : 'buttonInner4'
+    }
+  }
+  
+
+    changeColor() {
+    let previousClass = this.state.button1toggle;
+    
+     this.setState({button1toggle: "buttonInner1 Active"})
+    setTimeout(() => {
+      this.setState({button1toggle: previousClass})
+    }, 100)
+    
+  }
+
+
+
   render() {
+    
     return (
       <div className="MainGame">
         <div className="circleHelper">
-        <Buttons/>
+        <Buttons button1toggle={this.state.button1toggle}  changeColor={this.changeColor.bind(this)} />
         </div>
       </div>
     );

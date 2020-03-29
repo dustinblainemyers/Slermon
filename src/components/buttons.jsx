@@ -1,17 +1,30 @@
 import React, { Component } from "react";
 
-class Buttons extends Component {
-  render() {
+
+const Buttons = (props) => {
+
+ 
+ 
+    
+    
     return (
       <div className="buttonOuter">
-          <div className="buttonInner1" key="0"></div>
-          <div className="buttonInner2" key="1"></div>
-          <div className="buttonInner3" key="3"></div>
-          <div className="buttonInner4" key="4"></div>
+          <div className={props.button1toggle} key="0" onClick={() => props.changeColor('button1toggle','buttonInner1')} ></div>
+          <div className={props.button2toggle} key="1"></div>
+          <div className={props.button3toggle} key="3"></div>
+          <div className={props.button4toggle} key="4"></div>
         
       </div>
     );
   }
-}
+
+
+
+  Buttons.defaultProps = {
+    button1toggle : 'buttonInner1',
+    button2toggle : 'buttonInner2',
+    button3toggle : 'buttonInner3',
+    button4toggle : 'buttonInner4'
+  }
 
 export default Buttons;
