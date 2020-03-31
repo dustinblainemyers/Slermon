@@ -13,12 +13,12 @@ class MainGame extends Component {
   }
   
 
-    changeColor() {
-    let previousClass = this.state.button1toggle;
+    changeColor(toggle, button) {
     
-     this.setState({button1toggle: "buttonInner1 Active"})
+    
+     this.setState({: "buttonInner1 Active"})
     setTimeout(() => {
-      this.setState({button1toggle: previousClass})
+      this.setState({toggle: button})
     }, 100)
     
   }
