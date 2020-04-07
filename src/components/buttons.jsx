@@ -20,11 +20,6 @@ const Buttons = (props) => {
 
 
 
-  Buttons.defaultProps = {
-    button1toggle : 'buttonInner1',
-    button2toggle : 'buttonInner2',
-    button3toggle : 'buttonInner3',
-    button4toggle : 'buttonInner4'
-  }
+ 
 
 export default Buttons;
