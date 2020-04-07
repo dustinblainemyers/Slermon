@@ -17,29 +17,51 @@ class MainGame extends Component {
 
       showPattern() {
     
-     this.state.patternArray.forEach(number => {
+     this.state.patternArray.map(number => {
       
-      const asyncHandler = async () => {
+      const asyncHandler =  () => {
          
         switch (number) {
           case 1:
-             this.changeColor('button1toggle','buttonInner1')
+               
+               this.changeColor('button1toggle','buttonInner1')
+           
+            
+             
             break;
           case 2:
-            this.changeColor('button2toggle','buttonInner2')
+            
+              this.changeColor('button2toggle','buttonInner2')
+           
+            
             break;
           case 3:
-            this.changeColor('button3toggle','buttonInner3')
+            
+              this.changeColor('button3toggle','buttonInner3')
+           
+            
             
             break;
             case 4:
-              this.changeColor('button4toggle','buttonInner4')
+           
+                this.changeColor('button4toggle','buttonInner4')
+             
+              
               break;
           default:
             
         };
+
       }
-      asyncHandler()
+
+      let promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(asyncHandler())
+        }, 1000);
+    });
+   
+      
+    
       
     });
     
@@ -47,13 +69,14 @@ class MainGame extends Component {
     
   }
 
-  changeColor(toggle, button) {
+  async changeColor(toggle, button) {
     
-    
-    this.setState({[toggle]: button + " Active"})
-   setTimeout(() => {
-     this.setState({[toggle]: button})
-   }, 1000)
+     this.setState({[toggle]: button + " Active"})
+     setTimeout(() => {
+        this.setState({[toggle]: button})
+     }, 1000)
+     
+  
    
  }
 
