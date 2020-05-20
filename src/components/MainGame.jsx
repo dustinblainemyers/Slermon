@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Buttons from "./buttons";
+
 class MainGame extends Component {
   constructor(props) {
     super(props);
