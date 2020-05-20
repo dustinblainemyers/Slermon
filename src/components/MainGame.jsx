@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Buttons from "./buttons";
 class MainGame extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       button1toggle: "buttonInner1",
       button2toggle: "buttonInner2",
@@ -11,12 +11,33 @@ class MainGame extends Component {
       patternArray: [1, 2, 3, 4],
       gameMessage: "test",
       index: 0,
+      ready: false,
+      lose: false,
+      win: false,
     };
   }
 
   wait(parm1, parm2) {
-    this.changeColor(parm1, parm2);
     this.setState({ index: this.state.index + 1 });
+    this.changeColor(parm1, parm2);
+  }
+
+  check(toggle, button, buttonNumber) {
+    if (this.state.ready === true) {
+      if (buttonNumber !== this.state.patternArray[0]) {
+        this.setState({ lose: true });
+      } else {
+        let newArray = this.state.patternArray;
+        newArray.shift();
+        this.setState({ patternArray: newArray });
+        if (this.state.patternArray.length === 0) {
+          this.setState({ win: true });
+          this.setState({ ready: false });
+        }
+      }
+
+      this.changeColor(toggle, button);
+    }
   }
   showPattern() {
     setTimeout(() => {
@@ -38,6 +59,8 @@ class MainGame extends Component {
 
           break;
         default:
+          clearInterval(this.timerID);
+          this.setState({ ready: true });
       }
     }, 1000);
   }
@@ -50,23 +73,7 @@ class MainGame extends Component {
   }
 
   componentDidMount() {
-    const mountFunction = async () => {
-      if (this.state.index === 0) {
-        this.showPattern();
-      }
-    };
-
-    mountFunction();
-  }
-
-  componentDidUpdate() {
-    const mountFunction = async () => {
-      if (this.state.index < this.state.patternArray.length) {
-        this.showPattern();
-      }
-    };
-
-    mountFunction();
+    this.timerID = setInterval(() => this.showPattern(), 1000);
   }
 
   render() {
@@ -79,9 +86,13 @@ class MainGame extends Component {
             button3toggle={this.state.button3toggle}
             button4toggle={this.state.button4toggle}
             changeColor={this.changeColor.bind(this)}
+            check={this.check.bind(this)}
           />
         </div>
         <h2>{this.state.gameMessage}</h2>
+        {this.state.ready && <h2>Repeat The Pattern</h2>}
+        {this.state.lose && <h2>you lose</h2>}
+        {this.state.win && <h2>you win!!</h2>}
       </div>
     );
   }
