@@ -5,10 +5,10 @@ class MainGame extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      button1toggle: "buttonInner1",
-      button2toggle: "buttonInner2",
-      button3toggle: "buttonInner3",
-      button4toggle: "buttonInner4",
+      button1toggle: false,
+      button2toggle: false,
+      button3toggle: false,
+      button4toggle: false,
       patternArray: [1, 1, 1, 1],
       gameMessage: "test",
       index: 0,
@@ -83,9 +83,9 @@ class MainGame extends Component {
   }
 
   async changeColor(toggle, button) {
-    this.setState({ [toggle]: button + " Active" });
+    this.setState({ [toggle]: true });
     setTimeout(() => {
-      this.setState({ [toggle]: button });
+      this.setState({ [toggle]: false });
     }, 500);
   }
 

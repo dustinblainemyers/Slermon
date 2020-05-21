@@ -1,47 +1,40 @@
 .App {
   position: relative;
-  background-color: rgb(0, 0, 0);
+  background-color: white;
 }
 
 .circleHelper {
   display: grid;
   margin: 0 auto;
-  grid-template-columns: 2, 1fr;
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  max-width: 800px;
-}
-
-.buttonOuter {
+  max-width: 600px;
 }
 
 .buttonInner1 {
-  max-width: 400px;
+  max-width: 300px;
 
   grid-column: 1 / 2;
   grid-row: 1;
-  background-color: black;
 }
 
 .buttonInner2 {
-  max-width: 400px;
+  max-width: 300px;
+
   grid-column: 2 / 2;
   grid-row: 1;
-  background-color: blue;
 }
 
 .buttonInner3 {
-  max-width: 400px;
+  max-width: 300px;
   grid-column: 1 / 2;
   grid-row: 2;
-
-  background-color: black;
 }
 
 .buttonInner4 {
-  max-width: 400px;
+  max-width: 300px;
   grid-column: 2 / 2;
   grid-row: 2;
-  background-color: black;
 }
 
 .buttonInner1.Active {
