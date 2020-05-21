@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import red from "../SVG/red.svg";
-import green from "../SVG/green.svg";
+
 import purple from "../SVG/purple.svg";
 import yellow from "../SVG/yellow.svg";
 import black from "../SVG/black.svg";
