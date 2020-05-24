@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Buttons from "./buttons";
-import Title from "./Title";
+import Text from "./Text";
 
 class MainGame extends Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class MainGame extends Component {
     return (
       <div className='MainGame'>
         <div className='circleHelper'>
-          <Title />
+          <Text class='title' text='Slermon' />
           <Buttons
             button1toggle={this.state.button1toggle}
             button2toggle={this.state.button2toggle}
