@@ -11,7 +11,7 @@ class MainGame extends Component {
       button3toggle: false,
       button4toggle: false,
       patternArray: [1, 1, 1, 1],
-      gameMessage: "test",
+
       index: 0,
       ready: false,
       lose: false,
@@ -108,10 +108,11 @@ class MainGame extends Component {
             check={this.check.bind(this)}
           />
         </div>
-        <h2>{this.state.gameMessage}</h2>
+        <p>{this.state.gameMessage}</p>
         {this.state.ready && <h2>Repeat The Pattern</h2>}
-        {this.state.lose && <h2>you lose</h2>}
-        {this.state.win && <h2>you win!!</h2>}
+        {this.state.lose && <p>you lose</p>}
+        {this.state.win && <p>Round Won !</p>}
+        <p>Level: {this.state.winCount}</p>
       </div>
     );
   }
