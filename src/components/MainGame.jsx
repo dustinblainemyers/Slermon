@@ -10,8 +10,7 @@ class MainGame extends Component {
       button2toggle: false,
       button3toggle: false,
       button4toggle: false,
-      patternArray: [1, 1, 1, 1],
-
+      patternArray: [],
       index: 0,
       ready: false,
       lose: false,
@@ -57,30 +56,29 @@ class MainGame extends Component {
       this.changeColor(toggle, button);
     }
   }
+
   showPattern() {
-    setTimeout(() => {
-      switch (this.state.patternArray[this.state.index]) {
-        case 1:
-          this.wait("button1toggle", "buttonInner1");
-          break;
+    switch (this.state.patternArray[this.state.index]) {
+      case 1:
+        this.wait("button1toggle", "buttonInner1");
+        break;
 
-        case 2:
-          this.wait("button2toggle", "buttonInner2");
-          break;
+      case 2:
+        this.wait("button2toggle", "buttonInner2");
+        break;
 
-        case 3:
-          this.wait("button3toggle", "buttonInner3");
+      case 3:
+        this.wait("button3toggle", "buttonInner3");
 
-          break;
-        case 4:
-          this.wait("button4toggle", "buttonInner4");
+        break;
+      case 4:
+        this.wait("button4toggle", "buttonInner4");
 
-          break;
-        default:
-          clearInterval(this.timerID);
-          this.setState({ ready: true });
-      }
-    }, 1000);
+        break;
+      default:
+        clearInterval(this.timerID);
+        this.setState({ ready: true });
+    }
   }
 
   async changeColor(toggle, button) {
@@ -110,7 +108,11 @@ class MainGame extends Component {
         </div>
         <p>{this.state.gameMessage}</p>
         {this.state.ready && <h2>Repeat The Pattern</h2>}
-        {this.state.lose && <p>you lose</p>}
+        {this.state.lose && (
+          <>
+            <p>you lose</p> <button>New Game</button>
+          </>
+        )}
         {this.state.win && <p>Round Won !</p>}
         <p>Level: {this.state.winCount}</p>
       </div>
