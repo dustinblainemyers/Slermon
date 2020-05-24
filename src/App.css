@@ -1,3 +1,5 @@
+/* Global */
+
 .App {
   position: relative;
   background-color: white;
@@ -8,15 +10,12 @@
   margin: 0 auto;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  max-width: 600px;
+
   box-shadow: 1px 8px 8px 1px rgb(238, 236, 236);
 }
 
 img {
-  -webkit-filter: drop-shadow(12px 12px 25px rgba(0, 0, 0, 0.5));
-  filter: url(#drop-shadow);
-  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
-  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  filter: drop-shadow(10px 5px 4px #4444dd);
 }
 .title {
   background-color: aliceblue;
@@ -26,52 +25,37 @@ img {
   box-shadow: 1px 8px 8px 1px rgb(238, 236, 236);
   border-radius: 2px;
   text-shadow: 1px 1px 2px pink;
-  min-height: 50px;
-  font-size: 50px;
 }
 
 .buttonInner1 {
-  max-width: 300px;
-
   grid-column: 1 / 2;
   grid-row: 2;
 }
 
 .buttonInner2 {
-  max-width: 300px;
-
   grid-column: 2 / 2;
   grid-row: 2;
 }
 
 .buttonInner3 {
-  max-width: 300px;
   grid-column: 1 / 2;
   grid-row: 3;
 }
 
 .buttonInner4 {
-  max-width: 300px;
   grid-column: 2 / 2;
   grid-row: 3;
 }
 
-.buttonInner1.Active {
-  background-color: red;
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .circleHelper {
+    max-width: 500px;
+  }
 }
 
-.buttonInner2.Active {
-  background-color: green;
-}
-
-.buttonInner3.Active {
-  background-color: yellow;
-}
-
-.buttonInner4.Active {
-  background-color: purple;
-}
-
-h2 {
-  color: white;
+.title {
+  min-height: 50px;
+  font-size: 50px;
 }
