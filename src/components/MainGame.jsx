@@ -10,7 +10,7 @@ class MainGame extends Component {
       button2toggle: false,
       button3toggle: false,
       button4toggle: false,
-      patternArray: [],
+      patternArray: [1, 1, 1, 1],
       index: 0,
       ready: false,
       lose: false,
@@ -107,14 +107,15 @@ class MainGame extends Component {
           />
         </div>
         <p>{this.state.gameMessage}</p>
-        {this.state.ready && <h2>Repeat The Pattern</h2>}
+        {this.state.ready && <p>Repeat The Pattern</p>}
         {this.state.lose && (
           <>
-            <p>you lose</p> <button>New Game</button>
+            <p>you lose</p>
           </>
         )}
+        {!this.state.gameInProgress && <button>New Game</button>}
         {this.state.win && <p>Round Won !</p>}
-        <p>Level: {this.state.winCount}</p>
+        <p>Score: {this.state.winCount}</p>
       </div>
     );
   }

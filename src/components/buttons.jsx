@@ -10,7 +10,7 @@ const Buttons = (props) => {
   return (
     <>
       <div
-        className={props.button1toggle}
+        className={"buttonInner1"}
         key='0'
         onClick={() => props.check("button1toggle", "buttonInner1", 1)}
       >
@@ -18,21 +18,21 @@ const Buttons = (props) => {
         <img src={(props.button1toggle && red) || black} alt='testAsset' />
       </div>
       <div
-        className={props.button2toggle}
+        className={"buttonInner2"}
         key='1'
         onClick={() => props.check("button2toggle", "buttonInner2", 2)}
       >
         <img src={(props.button2toggle && blue) || black} alt='testAsset' />
       </div>
       <div
-        className={props.button3toggle}
+        className={"buttonInner3"}
         key='2'
         onClick={() => props.check("button3toggle", "buttonInner3", 3)}
       >
         <img src={(props.button3toggle && yellow) || black} alt='testAsset' />
       </div>
       <div
-        className={props.button4toggle}
+        className={"buttonInner4"}
         key='3'
         onClick={() => props.check("button4toggle", "buttonInner4", 4)}
       >

@@ -28,9 +28,11 @@ img {
   margin: 0;
 }
 
-.buttonInner1 {
-  grid-column: 1 / 2;
-  grid-row: 2;
+.buttonInner1,
+.buttonInner2,
+.buttonInner3,
+.buttonInner4 {
+  max-width: 150px;
 }
 
 .buttonInner2 {
@@ -52,7 +54,7 @@ img {
 
 @media (max-width: 768px) {
   .circleHelper {
-    max-width: 500px;
+    max-width: 250px;
   }
 }
 
