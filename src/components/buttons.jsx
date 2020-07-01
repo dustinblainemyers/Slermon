@@ -9,7 +9,7 @@ import blue from "../SVG/blue.svg";
 const Buttons = (props) => {
   return (
     <>
-      <div>
+      <div className={"buttonWrapper"}>
         <div
           className={"buttonInner1"}
           key='0'
@@ -27,7 +27,7 @@ const Buttons = (props) => {
         </div>
       </div>
 
-      <div>
+      <div className={"buttonWrapper"}>
         <div
           className={"buttonInner3"}
           key='2'

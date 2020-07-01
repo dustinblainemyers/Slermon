@@ -1,20 +1,27 @@
 /* Global */
 
 .App {
-  position: relative;
+  width: 100%;
   background-color: white;
 }
 
 .circleHelper {
+  max-width: 600px;
+
   margin: 0 auto;
-  display: flex;
-  grid-gap: 10px;
 
   box-shadow: 1px 8px 8px 1px rgb(238, 236, 236);
 }
 
+.buttonWrapper {
+  margin: 0 auto;
+  display: flex;
+}
+
 img {
   filter: drop-shadow(10px 5px 4px #4444dd);
+  width: 100%;
+  height: auto;
 }
 .title {
   background-color: aliceblue;
@@ -23,14 +30,14 @@ img {
   box-shadow: 1px 8px 8px 1px rgb(238, 236, 236);
   border-radius: 2px;
   text-shadow: 1px 1px 2px pink;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .buttonInner1,
 .buttonInner2,
 .buttonInner3,
 .buttonInner4 {
-  width: 300px;
+  width: 100%;
 }
 
 .buttonInner1 {
