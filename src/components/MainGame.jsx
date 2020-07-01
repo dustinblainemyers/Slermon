@@ -95,8 +95,8 @@ class MainGame extends Component {
   render() {
     return (
       <div className='MainGame'>
+        <Text class='title' text='Slermon' />
         <div className='circleHelper'>
-          <Text class='title' text='Slermon' />
           <Buttons
             button1toggle={this.state.button1toggle}
             button2toggle={this.state.button2toggle}
