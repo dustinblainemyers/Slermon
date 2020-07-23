@@ -12,11 +12,11 @@ class MainGame extends Component {
       button4toggle: false,
       patternArray: [1, 1, 1, 1],
       index: 0,
-      
+
       lose: false,
       win: false,
       winCount: 1,
-      computersTurn = true
+      computersTurn: true,
     };
   }
 
@@ -50,7 +50,6 @@ class MainGame extends Component {
 
           this.setState({ patternArray: anotherPattern });
           this.timerID = setInterval(() => this.showPattern(), 1000);
-          
         }
       }
 
@@ -59,8 +58,7 @@ class MainGame extends Component {
   }
 
   showPattern() {
-    
-    this.setState({computersTurn: true});
+    this.setState({ computersTurn: true });
     switch (this.state.patternArray[this.state.index]) {
       case 1:
         this.wait("button1toggle", "buttonInner1");
@@ -82,7 +80,7 @@ class MainGame extends Component {
         clearInterval(this.timerID);
         this.setState({ ready: true });
     }
-    this.setState({computersTurn: false});
+    this.setState({ computersTurn: false });
   }
 
   async changeColor(toggle, button) {
