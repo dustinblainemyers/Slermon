@@ -26,35 +26,33 @@ class MainGame extends Component {
   }
 
   check(toggle, button, buttonNumber) {
-    if (this.state.computersTurn === false) {
-      if (buttonNumber !== this.state.patternArray[0]) {
-        this.setState({ lose: true });
-      } else {
-        let newArray = this.state.patternArray;
-        newArray.shift();
-        this.setState({ patternArray: newArray });
-        if (this.state.patternArray.length === 0) {
-          this.setState({ win: true });
-          this.setState({ ready: false });
-          this.setState({ winCount: this.state.winCount + 1 });
-          const newPattern = () => {
-            let workingArray = [];
-            this.setState({ index: 0 });
-            for (let winCount = this.state.winCount; winCount > 0; winCount--) {
-              workingArray.push(Math.floor(Math.random() * 3 + 1));
-            }
-            console.log(workingArray);
-            return workingArray;
-          };
-          const anotherPattern = newPattern();
+    if (buttonNumber !== this.state.patternArray[0]) {
+      this.setState({ lose: true });
+    } else {
+      let newArray = this.state.patternArray;
+      newArray.shift();
+      this.setState({ patternArray: newArray });
+      if (this.state.patternArray.length === 0) {
+        this.setState({ win: true });
+        this.setState({ ready: false });
+        this.setState({ winCount: this.state.winCount + 1 });
+        const newPattern = () => {
+          let workingArray = [];
+          this.setState({ index: 0 });
+          for (let winCount = this.state.winCount; winCount > 0; winCount--) {
+            workingArray.push(Math.floor(Math.random() * 3 + 1));
+          }
+          console.log(workingArray);
+          return workingArray;
+        };
+        const anotherPattern = newPattern();
 
-          this.setState({ patternArray: anotherPattern });
-          this.timerID = setInterval(() => this.showPattern(), 1000);
-        }
+        this.setState({ patternArray: anotherPattern });
+        this.timerID = setInterval(() => this.showPattern(), 1000);
       }
-
-      this.changeColor(toggle, button);
     }
+
+    this.changeColor(toggle, button);
   }
 
   showPattern() {
@@ -78,9 +76,8 @@ class MainGame extends Component {
         break;
       default:
         clearInterval(this.timerID);
-        this.setState({ ready: true });
+        this.setState({ computersTurn: false });
     }
-    this.setState({ computersTurn: false });
   }
 
   async changeColor(toggle, button) {
@@ -106,6 +103,7 @@ class MainGame extends Component {
             button4toggle={this.state.button4toggle}
             changeColor={this.changeColor.bind(this)}
             check={this.check.bind(this)}
+            computersTurn={this.state.computersTurn}
           />
         </div>
         <p>{this.state.gameMessage}</p>
