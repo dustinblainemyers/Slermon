@@ -26,33 +26,37 @@ class MainGame extends Component {
   }
 
   check(toggle, button, buttonNumber) {
-    if (buttonNumber !== this.state.patternArray[0]) {
-      this.setState({ lose: true });
-    } else {
-      let newArray = this.state.patternArray;
-      newArray.shift();
-      this.setState({ patternArray: newArray });
-      if (this.state.patternArray.length === 0) {
-        this.setState({ win: true });
-        this.setState({ ready: false });
-        this.setState({ winCount: this.state.winCount + 1 });
-        const newPattern = () => {
-          let workingArray = [];
-          this.setState({ index: 0 });
-          for (let winCount = this.state.winCount; winCount > 0; winCount--) {
-            workingArray.push(Math.floor(Math.random() * 3 + 1));
-          }
-          console.log(workingArray);
-          return workingArray;
-        };
-        const anotherPattern = newPattern();
+    if (this.state.computersTurn === false) {
+      if (buttonNumber !== this.state.patternArray[0]) {
+        this.setState({ lose: true });
+      } else {
+        let newArray = this.state.patternArray;
+        newArray.shift();
+        this.setState({ patternArray: newArray });
+        if (this.state.patternArray.length === 0) {
+          this.setState({ win: true });
+          this.setState({ ready: false });
+          this.setState({ winCount: this.state.winCount + 1 });
+          const newPattern = () => {
+            let workingArray = [];
+            this.setState({ index: 0 });
+            for (let winCount = this.state.winCount; winCount > 0; winCount--) {
+              workingArray.push(Math.floor(Math.random() * 3 + 1));
+            }
+            console.log(workingArray);
+            return workingArray;
+          };
+          const anotherPattern = newPattern();
 
-        this.setState({ patternArray: anotherPattern });
-        this.timerID = setInterval(() => this.showPattern(), 1000);
+          this.setState({ patternArray: anotherPattern });
+          this.timerID = setInterval(() => this.showPattern(), 1000);
+        }
       }
-    }
 
-    this.changeColor(toggle, button);
+      this.changeColor(toggle, button);
+    } else {
+      console.log("its still computers turn");
+    }
   }
 
   showPattern() {
