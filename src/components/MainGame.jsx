@@ -10,7 +10,7 @@ class MainGame extends Component {
       button2toggle: false,
       button3toggle: false,
       button4toggle: false,
-      patternArray: [1, 1, 1, 1],
+      patternArray: [],
       index: 0,
 
       lose: false,
@@ -37,16 +37,8 @@ class MainGame extends Component {
           this.setState({ win: true });
           this.setState({ ready: false });
           this.setState({ winCount: this.state.winCount + 1 });
-          const newPattern = () => {
-            let workingArray = [];
-            this.setState({ index: 0 });
-            for (let winCount = this.state.winCount; winCount > 0; winCount--) {
-              workingArray.push(Math.floor(Math.random() * 3 + 1));
-            }
-            console.log(workingArray);
-            return workingArray;
-          };
-          const anotherPattern = newPattern();
+
+          const anotherPattern = this.newPattern();
 
           this.setState({ patternArray: anotherPattern });
           this.timerID = setInterval(() => this.showPattern(), 1000);
@@ -58,6 +50,16 @@ class MainGame extends Component {
       console.log("its still computers turn");
     }
   }
+
+  newPattern = () => {
+    let workingArray = [];
+    this.setState({ index: 0 });
+    for (let winCount = this.state.winCount; winCount > 0; winCount--) {
+      workingArray.push(Math.floor(Math.random() * 3 + 1));
+    }
+    console.log(workingArray);
+    return workingArray;
+  };
 
   showPattern() {
     this.setState({ computersTurn: true });
@@ -92,6 +94,7 @@ class MainGame extends Component {
   }
 
   componentDidMount() {
+    this.setState({ patternArray: this.newPattern() });
     this.timerID = setInterval(() => this.showPattern(), 1000);
   }
 
